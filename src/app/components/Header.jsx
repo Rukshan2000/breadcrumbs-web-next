@@ -1,12 +1,37 @@
 'use client';
 
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from 'next/image';
-import logo from '../assets/logo.png'; // Ensure the image is in the 'public' folder for Next.js
+import logo from '../assets/logo.png';
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  
+  // Handle scroll effect for header background
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
   
   const scrollToSection = (e, sectionId) => {
     e.preventDefault();
@@ -14,71 +39,213 @@ export function Header() {
     if (element) {
       const offsetTop = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
-        top: offsetTop - 80, // Adjust this value based on your header height
+        top: offsetTop - 80,
         behavior: 'smooth'
       });
       setIsMenuOpen(false);
     }
   };
+
+  // Animation variants
+  const navItemVariants = {
+    hidden: { opacity: 0, y: -5 },
+    visible: i => ({ 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        delay: i * 0.1,
+        duration: 0.5
+      }
+    })
+  };
+  
+  const menuVariants = {
+    closed: { 
+      opacity: 0,
+      x: "100%",
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 40
+      }
+    },
+    open: { 
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30
+      }
+    }
+  };
   
   return (
-    <header className="fixed w-full top-0 z-50 bg-[#0A0E17]/80 backdrop-blur-md border-b border-gray-800">
-      <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-6">
+    <>
+      <header className={`fixed w-full top-0 z-40 transition-all duration-300 ${scrolled ? 'bg-[#0A0E17]/90 backdrop-blur-md shadow-lg shadow-blue-900/10' : 'bg-transparent'}`}>
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="container mx-auto flex justify-between items-center py-4 px-4 md:px-6"
+        >
+          <motion.a 
+            href="#home" 
+            className="flex items-center gap-2 z-10" 
+            onClick={(e) => scrollToSection(e, '#home')}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            <Image src={logo} alt="Breadcrumbs Innovations Logo" className="h-8 w-auto" />
+            <motion.span 
+              className="font-bold text-lg bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              Breadcrumbs
+            </motion.span>
+          </motion.a>
 
-        <a href="#home" className="flex items-center gap-2" onClick={(e) => scrollToSection(e, '#')}>
-          <Image src={logo} alt="Breadcrumbs Innovations Logo" className="h-8 w-auto" />
-        </a>
-
-        <div className="hidden md:flex items-center gap-8">
-          <nav className="flex items-center gap-6">
-            <a href="#home" className="text-sm font-medium hover:text-orange-400 transition-colors" onClick={(e) => scrollToSection(e, '#home')}>
-              Home
-            </a>
-            <a href="#about" className="text-sm font-medium hover:text-orange-400 transition-colors" onClick={(e) => scrollToSection(e, '#about')}>
-              About
-            </a>
-            <a href="#services" className="text-sm font-medium hover:text-orange-400 transition-colors" onClick={(e) => scrollToSection(e, '#services')}>
-              Services
-            </a>
-            <a href="#careers" className="text-sm font-medium hover:text-orange-400 transition-colors" onClick={(e) => scrollToSection(e, '#careers')}>
-              Careers
-            </a>
-            <a href="#contact" className="text-sm font-medium hover:text-orange-400 transition-colors" onClick={(e) => scrollToSection(e, '#contact')}>
-              Contact
-            </a>
-          </nav>
-          <a href="#contact" className="px-4 py-2 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-600 rounded-md hover:opacity-90 transition-opacity" onClick={(e) => scrollToSection(e, '#contact')}>
-            Get in Touch
-          </a>
-        </div>
-        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-      {isMenuOpen && <div className="md:hidden bg-[#0A0E17] border-t border-gray-800">
-        <div className="container mx-auto px-4 py-4">
-          <nav className="flex flex-col gap-4">
-            <a href="#home" className="text-sm font-medium py-2 hover:text-orange-400 transition-colors" onClick={(e) => scrollToSection(e, '#home')}>
-              Home
-            </a>
-            <a href="#about" className="text-sm font-medium py-2 hover:text-orange-400 transition-colors" onClick={(e) => scrollToSection(e, '#about')}>
-              About
-            </a>
-            <a href="#services" className="text-sm font-medium py-2 hover:text-orange-400 transition-colors" onClick={(e) => scrollToSection(e, '#services')}>
-              Services
-            </a>
-            <a href="#careers" className="text-sm font-medium py-2 hover:text-orange-400 transition-colors" onClick={(e) => scrollToSection(e, '#careers')}>
-              Careers
-            </a>
-            <a href="#contact" className="text-sm font-medium py-2 hover:text-orange-400 transition-colors" onClick={(e) => scrollToSection(e, '#contact')}>
-              Contact
-            </a>
-            <a href="#contact" className="px-4 py-2 mt-2 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-600 rounded-md hover:opacity-90 transition-opacity text-center" onClick={(e) => scrollToSection(e, '#contact')}>
-              Get in Touch
-            </a>
-          </nav>
-        </div>
-      </div>}
-    </header>
+          <div className="hidden md:flex items-center gap-8">
+            <nav className="flex items-center gap-6">
+              {['Home', 'About', 'Services', 'Careers', 'Contact'].map((item, i) => (
+                <motion.a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-sm font-medium relative group overflow-hidden"
+                  onClick={(e) => scrollToSection(e, `#${item.toLowerCase()}`)}
+                  custom={i}
+                  initial="hidden"
+                  animate="visible"
+                  variants={navItemVariants}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {item}
+                  <motion.span 
+                    className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 transform origin-left" 
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.a>
+              ))}
+            </nav>
+            <motion.a 
+              href="#contact" 
+              className="px-5 py-2 text-sm font-medium rounded-md relative overflow-hidden group"
+              onClick={(e) => scrollToSection(e, '#contact')}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400 }}
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 z-0"></span>
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-cyan-500 to-purple-500 transition-opacity duration-300 z-0"></span>
+              <span className="relative z-10">Get in Touch</span>
+            </motion.a>
+          </div>
+          <motion.button 
+            className="md:hidden relative z-10 w-10 h-10 flex items-center justify-center bg-gray-800/50 backdrop-blur-sm rounded-full"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            whileTap={{ scale: 0.9 }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={isMenuOpen ? 'close' : 'menu'}
+                initial={{ opacity: 0, rotate: isMenuOpen ? 45 : -45 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: isMenuOpen ? -45 : 45 }}
+                transition={{ duration: 0.2 }}
+              >
+                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </motion.div>
+            </AnimatePresence>
+          </motion.button>
+        </motion.div>
+      </header>
+      
+      {/* Mobile side drawer - moved outside header to fix z-index issues */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            <motion.div 
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMenuOpen(false)}
+            />
+            <motion.div 
+              className="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-gradient-to-b from-gray-900 to-[#0A0E17] border-l border-gray-800/50 shadow-xl shadow-purple-900/20 z-50 overflow-y-auto"
+              variants={menuVariants}
+              initial="closed"
+              animate="open"
+              exit="closed"
+            >
+              <div className="p-6 flex flex-col h-full">
+                <div className="flex justify-end mb-8">
+                  <motion.button 
+                    onClick={() => setIsMenuOpen(false)}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800"
+                  >
+                    <X size={18} />
+                  </motion.button>
+                </div>
+                
+                <nav className="flex flex-col gap-5 mt-8">
+                  {['Home', 'About', 'Services', 'Careers', 'Contact'].map((item, i) => (
+                    <motion.a
+                      key={item}
+                      href={`#${item.toLowerCase()}`}
+                      className="text-lg font-medium py-3 border-b border-gray-800/50 flex items-center"
+                      onClick={(e) => scrollToSection(e, `#${item.toLowerCase()}`)}
+                      initial={{ x: 50, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: i * 0.1 + 0.2, duration: 0.3 }}
+                      whileHover={{ x: 8, color: "#8B5CF6" }}
+                    >
+                      {item}
+                    </motion.a>
+                  ))}
+                </nav>
+                
+                <motion.div 
+                  className="mt-auto pt-8"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.8 }}
+                >
+                  <motion.a 
+                    href="#contact" 
+                    className="w-full py-3 text-center text-sm font-medium rounded-md block relative overflow-hidden"
+                    onClick={(e) => scrollToSection(e, '#contact')}
+                    whileHover={{ scale: 1.03 }}
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 z-0"></span>
+                    <span className="relative z-10">Get in Touch</span>
+                  </motion.a>
+                  
+                  <div className="mt-8 flex justify-center gap-6">
+                    {['Twitter', 'LinkedIn', 'GitHub'].map((item, i) => (
+                      <motion.a
+                        key={item}
+                        href="#"
+                        className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800/70 hover:bg-gray-700/70"
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: i * 0.1 + 0.9 }}
+                        whileHover={{ y: -3, backgroundColor: "#8B5CF6" }}
+                      >
+                        {item[0]}
+                      </motion.a>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

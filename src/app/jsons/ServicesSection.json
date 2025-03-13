@@ -1,0 +1,75 @@
+[
+    {
+      "title": "IoT Development",
+      "description": "End-to-end IoT solutions that connect devices, collect data, and provide actionable insights for your business.",
+      "icon": "Globe",
+      "color": "orange",
+      "features": [
+        "Device connectivity solutions",
+        "Real-time data processing",
+        "Analytics dashboards"
+      ],
+      "showOnHomeScreen": true
+    },
+    {
+      "title": "Embedded Software",
+      "description": "Custom firmware and software solutions for embedded systems and smart devices.",
+      "icon": "Cpu",
+      "color": "red",
+      "features": [
+        "Firmware development",
+        "Device drivers",
+        "Hardware integration"
+      ],
+      "showOnHomeScreen": true
+    },
+    {
+      "title": "Cloud Solutions",
+      "description": "Scalable cloud infrastructure and services to support your IoT ecosystem.",
+      "icon": "Zap",
+      "color": "amber",
+      "features": [
+        "Cloud architecture",
+        "Serverless applications",
+        "Data storage solutions"
+      ],
+      "showOnHomeScreen": true
+    },
+    {
+      "title": "Custom Software",
+      "description": "Tailor-made software solutions designed to address your specific business challenges.",
+      "icon": "Users",
+      "color": "blue",
+      "features": [
+        "Web applications",
+        "Mobile applications",
+        "Desktop software"
+      ],
+      "showOnHomeScreen": true
+    },
+    {
+      "title": "System Integration",
+      "description": "Seamless integration of different systems, devices, and platforms for unified operations.",
+      "icon": "Cpu",
+      "color": "purple",
+      "features": [
+        "API development",
+        "Legacy system integration",
+        "Third-party service connections"
+      ],
+      "showOnHomeScreen": true
+    },
+    {
+      "title": "Consulting & Support",
+      "description": "Expert guidance and ongoing support for your IoT and software initiatives.",
+      "icon": "Zap",
+      "color": "cyan",
+      "features": [
+        "Technical consultation",
+        "Maintenance and updates",
+        "Training and documentation"
+      ],
+      "showOnHomeScreen": true
+    }
+  ]
+  

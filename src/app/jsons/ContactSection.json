@@ -1,0 +1,34 @@
+{
+    "title": "Get in Touch",
+    "description": "Have a project in mind or want to learn more about our services? Reach out to us!",
+    "contactForm": {
+      "name": "Your name",
+      "email": "your.email@example.com",
+      "subject": "How can we help you?",
+      "message": "Tell us about your project or inquiry..."
+    },
+    "contactInfo": {
+      "address": {
+        "icon": "MapPin",
+        "title": "Address",
+        "details": "No 140, 1/1 Old Kesbewa Rd, Nugegoda, Western Province, Sri Lanka"
+      },
+      "phone": {
+        "icon": "Phone",
+        "title": "Phone",
+        "details": "077 744 9332"
+      },
+      "email": {
+        "icon": "Mail",
+        "title": "Email",
+        "details": "info@breadcrumbsinnovations.com"
+      },
+      "workingHours": {
+        "icon": "Clock",
+        "title": "Working Hours",
+        "details": "Monday to Friday, 9:00 AM to 5:30 PM"
+      }
+    },
+    "mapEmbedLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.575561175713!2d79.8891!3d6.8652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25a4a3b04b0dd%3A0xa2460e9e1b8a817!2sNugegoda%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
+  }
+  

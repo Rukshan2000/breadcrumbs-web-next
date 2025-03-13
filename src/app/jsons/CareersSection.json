@@ -1,0 +1,36 @@
+{
+    "showHomeScreen": true,
+    "positions": [
+      {
+        "title": "Application Support Engineer Intern",
+        "type": "Internship",
+        "description": "Looking for a passionate individual to join our support team and assist with application troubleshooting and customer inquiries.",
+        "applyLink": "#"
+      },
+      {
+        "title": "Associate Software Engineer - Full Stack",
+        "type": "Full-time",
+        "description": "Join our development team to create innovative web and mobile applications that integrate with IoT devices and systems.",
+        "applyLink": "#"
+      }
+    ],
+    "whyJoin": [
+      {
+        "title": "Cutting-edge Projects",
+        "icon": "Zap",
+        "description": "Work on innovative technologies and solutions that make a real impact."
+      },
+      {
+        "title": "Collaborative Culture",
+        "icon": "Users",
+        "description": "Join a supportive team that values your ideas and contributions."
+      },
+      {
+        "title": "Professional Growth",
+        "icon": "Cpu",
+        "description": "Continuous learning opportunities and clear career advancement paths."
+      }
+    ],
+    "contactEmail": "careers@breadcrumbsinnovations.com"
+  }
+  

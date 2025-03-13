@@ -1,0 +1,28 @@
+[
+  {
+    "heading": "Breadcrumbs Innovations",
+    "subheading": "Crafting solutions for a smarter future",
+    "description": "We are a team of innovators building next-gen software solutions that empower businesses to thrive in a connected world. From IoT devices to custom software development, we bring your ideas to life with cutting-edge technology.",
+    "services": [
+      {
+        "title": "IoT Expertise",
+        "description": "Specialized solutions that connect devices and systems for smarter operations.",
+        "icon": "Globe",
+        "iconColor": "text-orange-400"
+      },
+      {
+        "title": "Device Solutions",
+        "description": "Custom software for hardware devices that enhances functionality and user experience.",
+        "icon": "Cpu",
+        "iconColor": "text-red-400"
+      },
+      
+      {
+        "title": "Innovative Approach",
+        "description": "Forward-thinking development methodologies that deliver cutting-edge results.",
+        "icon": "Zap",
+        "iconColor": "text-amber-400"
+      }
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+{
+    "title": "Breadcrumbs Innovations",
+    "mission": "At Breadcrumbs Innovations, we're committed to delivering cutting-edge solutions that drive technological advancement and create meaningful impact for our clients.",
+    "approach": "We combine technical expertise with creative problem-solving to develop innovative solutions that address complex challenges in the IoT space.",
+    "statistics": [
+      {
+        "title": "2021",
+        "subtitle": "Year Founded",
+        "color": "blue"
+      },
+      {
+        "title": "15+",
+        "subtitle": "Projects Delivered",
+        "color": "purple"
+      },
+      {
+        "title": "20+",
+        "subtitle": "Team Members",
+        "color": "cyan"
+      },
+      {
+        "title": "10+",
+        "subtitle": "Satisfied Clients",
+        "color": "blue"
+      }
+    ],
+    "team": [
+      {
+        "name": "Jane Doe",
+        "role": "Founder & CEO",
+        "initials": "JD",
+        "color": "blue",
+        "showOnHomeScreen": true
+      },
+      {
+        "name": "John Smith",
+        "role": "CTO",
+        "initials": "JS",
+        "color": "purple",
+        "showOnHomeScreen": true
+      },      {
+        "name": "John Smith",
+        "role": "CTO",
+        "initials": "JS",
+        "color": "purple",
+        "showOnHomeScreen": true
+      },      {
+        "name": "John Smith",
+        "role": "CTO",
+        "initials": "JS",
+        "color": "purple",
+        "showOnHomeScreen": false
+      },      {
+        "name": "John Smith",
+        "role": "CTO",
+        "initials": "JS",
+        "color": "purple",
+        "showOnHomeScreen": false
+      },
+      {
+        "name": "Anusha Perera",
+        "role": "Lead IoT Engineer",
+        "initials": "AP",
+        "color": "cyan",
+        "showOnHomeScreen": true
+      }
+    ]
+  }
