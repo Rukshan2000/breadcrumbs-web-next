@@ -10,7 +10,7 @@ import { CareersSection } from "./components/CareersSection.jsx";
 import { ContactSection } from "./components/ContactSection.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { Loader } from "./components/Loader.jsx"; // Import the loader
-import { Cursor } from './components/Cursor';
+import { Cursor } from './components/Cursor.jsx';
 
 
 export default function Home() {
