@@ -1,23 +1,152 @@
 {
     "title": "Case Studies",
-    "description": "Explore how we've helped our clients achieve their goals with innovative IoT solutions.",
+    "description": "Explore how we've helped our clients achieve their goals with innovative IoT and software solutions.",
     "caseStudies": [
       {
-        "title": "Smart Factory Monitoring System",
-        "description": "Developed an IoT-based monitoring system for a manufacturing plant, resulting in 30% improved efficiency.",
-        "image": "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-        "link": "#",
-        "hoverColor": "orange",
-        "showOnHomeScreen": true
-      },
-      {
+        "caseStudyId": 1,
         "title": "Healthcare IoT Solution",
         "description": "Created a connected device ecosystem for patient monitoring that reduced response times by 45%.",
+        "longDescription": "Our Healthcare IoT Solution revolutionized patient care by integrating IoT devices with real-time monitoring capabilities. This system allows healthcare providers to track patient vitals remotely, ensuring timely interventions and reducing hospital readmissions. The solution is designed to be scalable, secure, and user-friendly, making it ideal for hospitals, clinics, and home care settings.",
+        "image": "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+        "link": "#",
+        "hoverColor": "red",
+        "showOnHomeScreen": true,
+        "features": [
+          "Remote patient monitoring with IoT devices",
+          "Automated vital sign alerts",
+          "Data integration with electronic health records (EHR)",
+          "Mobile app for real-time updates",
+          "Wearable device compatibility"
+        ],
+        "challenges": [
+          "High latency in data transmission",
+          "Ensuring data security and HIPAA compliance",
+          "Integrating with legacy hospital systems",
+          "Providing a user-friendly interface for non-technical staff"
+        ],
+        "solutions": [
+          "Implemented edge computing to reduce latency",
+          "Used end-to-end encryption and secure APIs for data security",
+          "Developed middleware for seamless integration with legacy systems",
+          "Designed an intuitive mobile and web interface for ease of use"
+        ],
+        "technologiesUsed": [
+          "IoT Sensors and Devices",
+          "AWS IoT Core",
+          "React Native for Mobile App",
+          "Node.js for Backend",
+          "MongoDB for Database",
+          "HIPAA-Compliant Cloud Infrastructure"
+        ],
+        "pricing": {
+          "setupCost": "$20,000",
+          "monthlySubscription": "$3,000",
+          "deviceCost": "$200 per device"
+        },
+        "results": [
+          {
+            "value": "45%",
+            "label": "Reduction in response times"
+          },
+          {
+            "value": "30%",
+            "label": "Decrease in hospital readmissions"
+          },
+          {
+            "value": "95%",
+            "label": "Patient satisfaction rate"
+          },
+          {
+            "value": "50+",
+            "label": "Hospitals using the solution"
+          }
+        ],
+        "testimonials": [
+          {
+            "quote": "This IoT solution has transformed how we monitor our patients. The real-time alerts have saved lives!",
+            "author": "Dr. Jane Doe, Chief Medical Officer",
+            "role": "XYZ Hospital"
+          },
+          {
+            "quote": "The integration with our existing systems was seamless, and the team provided excellent support throughout the process.",
+            "author": "John Smith, IT Director",
+            "role": "ABC Clinic"
+          }
+        ]
+      },
+      {
+        "caseStudyId": 2,
+        "title": "Healthcare IoT Solution",
+        "description": "Created a connected device ecosystem for patient monitoring that reduced response times by 45%.",
+        "longDescription": "Our Healthcare IoT Solution revolutionized patient care by integrating IoT devices with real-time monitoring capabilities. This system allows healthcare providers to track patient vitals remotely, ensuring timely interventions and reducing hospital readmissions. The solution is designed to be scalable, secure, and user-friendly, making it ideal for hospitals, clinics, and home care settings.",
         "image": "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
         "link": "#",
         "hoverColor": "red",
-        "showOnHomeScreen": false
+        "showOnHomeScreen": true,
+        "features": [
+          "Remote patient monitoring with IoT devices",
+          "Automated vital sign alerts",
+          "Data integration with electronic health records (EHR)",
+          "Mobile app for real-time updates",
+          "Wearable device compatibility"
+        ],
+        "challenges": [
+          "High latency in data transmission",
+          "Ensuring data security and HIPAA compliance",
+          "Integrating with legacy hospital systems",
+          "Providing a user-friendly interface for non-technical staff"
+        ],
+        "solutions": [
+          "Implemented edge computing to reduce latency",
+          "Used end-to-end encryption and secure APIs for data security",
+          "Developed middleware for seamless integration with legacy systems",
+          "Designed an intuitive mobile and web interface for ease of use"
+        ],
+        "technologiesUsed": [
+          "IoT Sensors and Devices",
+          "AWS IoT Core",
+          "React Native for Mobile App",
+          "Node.js for Backend",
+          "MongoDB for Database",
+          "HIPAA-Compliant Cloud Infrastructure"
+        ],
+        "pricing": {
+          "setupCost": "$20,000",
+          "monthlySubscription": "$3,000",
+          "deviceCost": "$200 per device"
+        },
+        "results": [
+          {
+            "value": "45%",
+            "label": "Reduction in response times"
+          },
+          {
+            "value": "30%",
+            "label": "Decrease in hospital readmissions"
+          },
+          {
+            "value": "95%",
+            "label": "Patient satisfaction rate"
+          },
+          {
+            "value": "50+",
+            "label": "Hospitals using the solution"
+          }
+        ],
+        "testimonials": [
+          {
+            "quote": "This IoT solution has transformed how we monitor our patients. The real-time alerts have saved lives!",
+            "author": "Dr. Jane Doe, Chief Medical Officer",
+            "role": "XYZ Hospital"
+          },
+          {
+            "quote": "The integration with our existing systems was seamless, and the team provided excellent support throughout the process.",
+            "author": "John Smith, IT Director",
+            "role": "ABC Clinic"
+          }
+        ]
       }
+      
     ],
     "viewAllLink": "#"
   }

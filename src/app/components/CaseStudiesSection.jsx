@@ -4,6 +4,8 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import caseStudiesData from '../jsons/CaseStudiesSection.json';
 import { motion } from "framer-motion";
 import { useState } from 'react';
+import Link from 'next/link'
+
 
 export function CaseStudiesSection() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -34,35 +36,19 @@ export function CaseStudiesSection() {
 
   return (
     <section className="py-24 relative overflow-hidden bg-[#070B12]">
-      {/* Animated Background Elements */}
+      {/* Background elements for animation */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <motion.div 
           className="absolute -top-20 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
+          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
         />
         <motion.div 
           className="absolute -bottom-20 -left-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
         />
-        
-        {/* Digital grid effect */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDYwTDYwIDBIMHY2MHoiIGZpbGw9IiMwNzBCMTIiLz48L2c+PC9zdmc+')] opacity-[0.03]" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,...')] opacity-[0.03]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -103,6 +89,7 @@ export function CaseStudiesSection() {
           </motion.p>
         </motion.div>
 
+        {/* Case Study Grid */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
           variants={containerVariants}
@@ -131,7 +118,6 @@ export function CaseStudiesSection() {
                 transition={{ duration: 0.3 }}
               />
 
-              {/* Card content */}
               <div className="relative z-10 flex flex-col h-full overflow-hidden rounded-2xl border border-gray-700 group-hover:border-opacity-0 transition-all duration-300">
                 <div className="h-52 overflow-hidden relative">
                   <motion.img 
@@ -144,7 +130,6 @@ export function CaseStudiesSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  {/* Floating tag */}
                   <motion.div 
                     className="absolute top-4 right-4 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs font-medium border border-gray-700/50"
                     initial={{ opacity: 0, y: -10 }}
@@ -160,7 +145,7 @@ export function CaseStudiesSection() {
                     <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors duration-300">{study.title}</h3>
                     <p className="text-gray-300 mb-5 leading-relaxed">{study.description}</p>
                   </div>
-                  
+
                   {/* Results metrics */}
                   {study.results && (
                     <div className="grid grid-cols-2 gap-4 mb-5">
@@ -172,38 +157,34 @@ export function CaseStudiesSection() {
                       ))}
                     </div>
                   )}
-                  
-                  <motion.a 
-                    href={study.link} 
-                    className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium mt-2 group/link"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    Read case study
-                    <motion.span 
-                      className="ml-2 transition-transform"
-                      initial={{ x: 0 }}
-                      whileHover={{ x: 3 }}
-                    >
-                      <ArrowRight size={16} />
-                    </motion.span>
-                  </motion.a>
+<Link href={{
+  pathname: '/CaseStudy',
+  query: { id: study.caseStudyId } // Pass the caseStudyId as a query parameter
+}}>
+  <motion.a 
+    className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium mt-2 group/link"
+    whileHover={{ x: 5 }}
+    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+  >
+    Read case study
+    <motion.span 
+      className="ml-2 transition-transform"
+      initial={{ x: 0 }}
+      whileHover={{ x: 3 }}
+    >
+      <ArrowRight size={16} />
+    </motion.span>
+  </motion.a>
+</Link>
+
+
                 </div>
-                
-                {/* Futuristic hover effect */}
-                <motion.div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                >
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-r from-blue-600/0 to-purple-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                  <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-r from-blue-600/10 to-purple-600/0 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-                </motion.div>
               </div>
             </motion.div>
           ))}
         </motion.div>
-
+        
+        {/* View All Button */}
         <motion.div 
           className="mt-14 text-center"
           initial={{ opacity: 0, y: 20 }}

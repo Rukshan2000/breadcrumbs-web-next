@@ -21,13 +21,15 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.jsx"
+    "**/*.jsx",
+    "src/app/CaseStudy/CaseStudy/[id].js"
   ],
   "exclude": [
     "node_modules"
