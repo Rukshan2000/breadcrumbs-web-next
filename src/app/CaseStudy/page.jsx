@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import caseStudiesData from '../jsons/CaseStudiesSection.json';
 import { Header } from '../components/Header';
@@ -17,7 +17,7 @@ import { ResultsTab } from './components/ResultsTab';
 import { TestimonialsTab } from './components/TestimonialsTab';
 import { Footer } from '../components/Footer'; // Import Footer component
 
-export default function CaseStudyPage() {
+function CaseStudyContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
   const [isLoading, setIsLoading] = useState(true);
@@ -140,5 +140,13 @@ export default function CaseStudyPage() {
       </section>
       <Footer />
     </>
+  );
+}
+
+export default function CaseStudyPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CaseStudyContent />
+    </Suspense>
   );
 }
