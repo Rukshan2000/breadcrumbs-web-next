@@ -160,9 +160,8 @@ export function CaseStudiesSection() {
 <Link href={{
   pathname: '/CaseStudy',
   query: { id: study.caseStudyId } // Pass the caseStudyId as a query parameter
-}}>
-  <motion.a 
-    className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium mt-2 group/link"
+}} className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium mt-2 group/link">
+  <motion.span 
     whileHover={{ x: 5 }}
     transition={{ type: "spring", stiffness: 400, damping: 10 }}
   >
@@ -174,7 +173,7 @@ export function CaseStudiesSection() {
     >
       <ArrowRight size={16} />
     </motion.span>
-  </motion.a>
+  </motion.span>
 </Link>
 
 
