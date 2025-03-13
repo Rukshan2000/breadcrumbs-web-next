@@ -10,6 +10,8 @@ import { CareersSection } from "./components/CareersSection.jsx";
 import { ContactSection } from "./components/ContactSection.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { Loader } from "./components/Loader.jsx"; // Import the loader
+import { Cursor } from './components/Cursor';
+
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +27,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#0A0E17] text-white overflow-x-hidden">
+              <Cursor />
       {isLoading ? (
         // Show the loader while loading
         <Loader />
@@ -32,6 +35,7 @@ export default function Home() {
         // Show the main content after loading
         <>
           <Header />
+  
           <main>
             <HeroSection />
             <AboutSection />
